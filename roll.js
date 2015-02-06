@@ -22,6 +22,11 @@ module.controller("rollerController", ["$scope", function($scope){
         };
     }
 
+    $scope.surpriseMe = function(){
+        $scope.rollsIn = Math.ceil(Math.pow(Math.ceil((Math.random()*5)), Math.ceil((Math.random()*3))));
+        $scope.dieSides = Math.ceil(Math.pow(Math.ceil((Math.random()*5)), Math.ceil((Math.random()*3))));
+        $scope.doRolls();
+    }
 
     $scope.doRolls = function(){
         $scope.dice = [];

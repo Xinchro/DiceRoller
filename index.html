@@ -16,11 +16,13 @@
                 <span>{{rollTotal}}</span>
             </div> -->
             <div id="wrapper">
-                <div id="button">
+                <div id="buttons">
                     <button class="button" ng-click="doRolls()">Roll em!</button>
+                    <button class="button" ng-click="surpriseMe()">Gamble!</button>
                 </div>
                 <div id="dicePicker">
                     <input class="rolls" type="text" ng-model="rollsIn" />
+                    <span id="D">d</span>
                     <input class="rolls" type="text" ng-model="dieSides" />
                 </div>
                 <br />
