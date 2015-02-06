@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app='roller'>
+
+	<head>
+        <meta charset="utf-8"> 
+        <link rel="stylesheet" href="style.css">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="Angular/angular.min.js"></script>
+        <script type="text/javascript" src="roll.js"></script>
+    </head>
+
+	<body>
+		<div ng-controller="rollerController">
+        <!-- Currrently not being used -->
+            <!-- <div id="total">
+                <span>{{rollTotal}}</span>
+            </div> -->
+            <div id="wrapper">
+                <div id="button">
+                    <button class="button" ng-click="doRolls()">Roll em!</button>
+                </div>
+                <div id="dicePicker">
+                    <input class="rolls" type="text" ng-model="rollsIn" />
+                </div>
+                <br />
+                <div id="rolledDice">
+                    <ul class="die" ng-repeat="die in dice">
+                        <li><span class="dieInner">{{die.value}}</span></li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
