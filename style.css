@@ -132,3 +132,15 @@ body{
     font-size: 2em;
     width: 60px;
 }
+
+/* Remove spinners from input */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
