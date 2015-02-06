@@ -13,7 +13,7 @@ body{
 	position: absolute;
 }
 
-#D{
+.D{
     font-size: 2em;
 }
 
@@ -109,7 +109,7 @@ body{
     width: 70%;
 }
 
-.rolls{
+.rollers{
     height: 100%;
     background-color: transparent;
     border: none;
@@ -131,6 +131,13 @@ body{
     color: rgba(255,255,255,1);
     font-size: 2em;
     width: 60px;
+}
+
+.addMore{
+    float :left; 
+    height: 50px; 
+    width: 50px;
+    font-size: 2em;
 }
 
 /* Remove spinners from input */

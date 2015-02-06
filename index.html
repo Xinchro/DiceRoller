@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app='roller'>
+<html ng-app='diceRoller'>
 
 	<head>
         <meta charset="utf-8"> 
@@ -20,10 +20,13 @@
                     <button class="button" ng-click="doRolls()">Roll em!</button>
                     <button class="button" ng-click="surpriseMe()">Gamble!</button>
                 </div>
-                <div id="dicePicker">
-                    <input class="rolls" type="number" ng-model="rollsIn" />
-                    <span id="D">d</span>
-                    <input class="rolls" type="number" ng-model="dieSides" />
+                <div id="dicePicker"  ng-repeat="input in inputs">
+                    <div style="float:left;">
+                        <input class="rollers" type="number" ng-model="input.rolls" />
+                        <span class="D">d</span>
+                        <input class="rollers" type="number" ng-model="input.sides" />
+                    </div>
+                    <div class="addMore" ng-click="addMoreOptions()">&#9679;</div>
                 </div>
                 <br />
                 <div id="rolledDice">
