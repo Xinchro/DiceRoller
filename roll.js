@@ -5,6 +5,7 @@ module.controller("rollerController", ["$scope", function($scope){
     $scope.dice = [];
     $scope.rollTotal = 0;
     $scope.rollsIn = 200;
+    $scope.dieSides = 12;
 
     $scope.die = function(sides){
         this.roll = function(){
@@ -24,16 +25,7 @@ module.controller("rollerController", ["$scope", function($scope){
 
     $scope.doRolls = function(){
         $scope.dice = [];
-        // console.log("rolling 2d4");
-        // $scope.rollADie(2, 4);
-        // console.log("rolling 1d2");
-        // $scope.rollADie(1, 2);
-        // console.log("rolling 2d3");
-        // $scope.rollADie(2, 3);
-        // console.log("rolling 2d12");
-        // $scope.rollADie(2, 12);
-        $scope.rollADie($scope.rollsIn, 12);
+        $scope.rollADie($scope.rollsIn, $scope.dieSides);
     }
 
-    // $scope.doRolls();
 }]);
