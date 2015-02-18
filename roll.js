@@ -5,8 +5,6 @@ module.controller("rollerController", ["$scope", function($scope){
     $scope.dice = [];
     $scope.rollInputs =[];
     $scope.rollTotal = 0;
-    // $scope.rollsIn = 200;
-    // $scope.dieSides = 12;
 
     function die(sides){
         this.maxValue = sides;
@@ -19,9 +17,8 @@ module.controller("rollerController", ["$scope", function($scope){
     };
 
     $scope.rollADie = function(times, sides){
-        for (var i = times -1; i >= 0; i--) {
+        for (var i = 0; i < times; i++) {
             var rollingDie = new die(sides);
-            console.dir(rollingDie);
             rollingDie.roll();
             $scope.dice.push(rollingDie);
         };
@@ -59,7 +56,7 @@ module.controller("rollerController", ["$scope", function($scope){
     };
 
     $scope.surpriseMe = function(){
-        for (var i = $scope.rollInputs.length - 1; i >= 0; i--) {
+        for (var i = 0; i < $scope.rollInputs.length; i++) {
             $scope.rollInputs[i].sides = Math.ceil(Math.pow(Math.ceil((Math.random()*5)), Math.ceil((Math.random()*3))));
             $scope.rollInputs[i].rolls = Math.ceil(Math.pow(Math.ceil((Math.random()*5)), Math.ceil((Math.random()*3))));
         };
@@ -69,7 +66,7 @@ module.controller("rollerController", ["$scope", function($scope){
 
     $scope.doRolls = function(){
         $scope.dice = [];
-        for (var i = $scope.rollInputs.length - 1; i >= 0; i--) {
+        for (var i = 0; i < $scope.rollInputs.length; i++) {
             $scope.rollADie($scope.rollInputs[i].rolls, $scope.rollInputs[i].sides);
         };
     };
