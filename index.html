@@ -1,54 +1,39 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Diceroller by Xinchro</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<html ng-app='diceRoller'>
+	<head>
+        <meta charset="utf-8"> 
+        <link rel="stylesheet" href="style.css">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="Angular/angular.min.js"></script>
+        <script type="text/javascript" src="roll.js"></script>
+    </head>
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/Xinchro/DiceRoller">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/Xinchro/DiceRoller/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/Xinchro/DiceRoller/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
-
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Diceroller</h1>
-          <p>Simple dice roller</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/Xinchro">Xinchro</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <p>This is a simple dice roller.</p>
-
-<p>Website: <a href="http://roll.xinchronize.com">http://roll.xinchronize.com</a></p>
-
-<p>Put 2 numbers in. The left being the number of dice to throw and the right being the number of sides each die will have.</p>
-
-<p>"Roll em!" will roll the numbers in the 2 inputs, "Gamble!" will roll with 2 random numbers.</p>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
+	<body>
+		<div ng-controller="rollerController">
+        <!-- Currrently not being used -->
+            <!-- <div id="total">
+                <span>{{rollTotal}}</span>
+            </div> -->
+            <div id="wrapper">
+                <div id="buttons">
+                    <button class="button" ng-click="doRolls()">Roll em!</button>
+                    <button class="button" ng-click="surpriseMe()">Gamble!</button>
+                </div>
+                <div id="dicePicker" >
+                    <div id="diceInput" style="float:left;" ng-repeat="butt in rollInputs">
+                        <input class="rollers" type="number" ng-model="butt.rolls" />
+                        <span class="D">d</span>
+                        <input class="rollers" type="number" ng-model="butt.sides" />
+                        <div class="addMore" ng-click="addMoreOptions()">+</div>
+                    </div>
+                </div>
+                <br />
+                <div id="rolledDice">
+                    <ul class="die" ng-repeat="die in dice">
+                        <li><span class="dieInner" ng-class="{'red': die.value === 1, 'blue': die.value === die.maxValue, 'smallerText': die.value > 99}">{{die.value}}</span></li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</body>
 </html>
