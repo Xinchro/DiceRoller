@@ -18,16 +18,18 @@
                 <div id="buttons">
                     <button class="button" ng-click="doRolls()">Roll em!</button>
                     <button class="button" ng-click="surpriseMe()">Gamble!</button>
+                    <button class="button" ng-click="addMoreOptions()">+</button>
                 </div>
                 <div id="dicePicker" >
-                    <div id="diceInput" style="float:left;" ng-repeat="butt in rollInputs">
-                        <input class="rollers" type="number" ng-model="butt.rolls" />
+                    <div class="diceInput" ng-repeat="roller in rollInputs">
+                        <input class="rollers" type="number" ng-model="roller.rolls" />
                         <span class="D">d</span>
-                        <input class="rollers" type="number" ng-model="butt.sides" />
-                        <div class="addMore" ng-click="addMoreOptions()">+</div>
+                        <input class="rollers" type="number" ng-model="roller.sides" />
+                        <div class="addLess">                            
+                            <span ng-click="removeOption()">-</span>
+                        </div>
                     </div>
                 </div>
-                <br />
                 <div id="rolledDice">
                     <ul class="die" ng-repeat="die in dice">
                         <li><span class="dieInner" ng-class="{'red': die.value === 1, 'blue': die.value === die.maxValue, 'smallerText': die.value > 99}">{{die.value}}</span></li>

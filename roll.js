@@ -53,6 +53,10 @@ module.controller("rollerController", ["$scope", function($scope){
         };
 
         getRolls = getRolls();
+
+        remove = function(){
+            console.log("removing");
+        };
     };
 
     $scope.surpriseMe = function(){
@@ -73,6 +77,12 @@ module.controller("rollerController", ["$scope", function($scope){
 
     $scope.addMoreOptions = function(){
         $scope.rollInputs.push(new Option());
+    };
+
+    $scope.removeOption = function(){
+        if($scope.rollInputs.length > 1){
+            $scope.rollInputs.pop($scope.rollInputs[0]);
+        }
     };
 
     $scope.addMoreOptions();
