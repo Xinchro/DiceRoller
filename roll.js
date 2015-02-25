@@ -80,7 +80,9 @@ module.controller("rollerController", ["$scope", function($scope){
     };
 
     $scope.removeOption = function(){
-        $scope.rollInputs.splice(this.$index,1 );
+        if($scope.rollInputs.length > 1){
+            $scope.rollInputs.splice(this.$index,1 );
+        }
     };
 
     $scope.addMoreOptions();
